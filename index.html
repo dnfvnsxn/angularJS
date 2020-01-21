@@ -22,13 +22,14 @@
                         <div class="input-group-text">
                             <input type="checkbox" ng-model="todo.completed" />
                         </div>
+                        <input
+                            type="text"
+                            class="form-control"
+                            ng-model="todo.title"
+                        />
                     </div>
-                    <input
-                        type="text"
-                        class="form-control"
-                        ng-model="todo.title"
-                    />
-                    <date>{{todo.createdAt}}</date>
+
+                    <date>{{todo.createdAt | date:'yyyy-MM-dd HH:mm:ss'}}</date>
                 </div>
             </li>
         </ul>

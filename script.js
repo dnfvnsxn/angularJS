@@ -4,7 +4,11 @@
     app.controller("TodoCtrl", [
         "$scope",
         function($scope) {
-            $scope.name = "Chris";
+            $scope.todo = {
+                title: "요가",
+                completed: false,
+                createdAt: Date.now()
+            };
         }
     ]);
 })();

@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-        />
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Document</title>
-        <script src="script.js"></script>
-    </head>
-    <body ng-app="todo" ng-controller="TodoCtrl">
-        <ul class="list-unstyled">
-            <li ng-repeat="todo in todos">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <input type="checkbox" ng-model="todo.completed" />
-                        </div>
-                        <input
-                            type="text"
-                            class="form-control"
-                            ng-model="todo.title"
-                        />
-                        <button
-                            class="btn btn-danger"
-                            type="button"
-                            id="button-addon2"
-                            ng-click="remove(todo)"
-                        >
-                            delete
-                        </button>
-                    </div>
-                    <date>{{todo.createdAt | date:'yyyy-MM-dd HH:mm:ss'}}</date>
-                </div>
-            </li>
-        </ul>
-    </body>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="script.js"></script>
+  </head>
+  <body ng-app="todo" ng-controller="TodoCtrl">
+    <div class="container">
+      <h1>투두목록</h1>
+      <ul class="list-unstyled">
+        <li ng-repeat="todo in todos | filter:statusFilter">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="checkbox" ng-model="todo.completed" />
+              </div>
+              <input type="text" class="form-control" ng-model="todo.title" />
+              <button
+                class="btn btn-danger"
+                type="button"
+                id="button-addon2"
+                ng-click="remove(todo)"
+              >
+                delete
+              </button>
+            </div>
+            <date>{{todo.createdAt | date:'yyyy-MM-dd HH:mm:ss'}}</date>
+          </div>
+        </li>
+      </ul>
+      <button class="btn btn-primary" ng-Click="statusFilter={completed:true}">
+        Completed
+      </button>
+      <button class="btn btn-primary" ng-Click="statusFilter={completed:false}">
+        Active
+      </button>
+      <button class="btn btn-primary" ng-Click="statusFilter={}">All</button>
+    </div>
+  </body>
 </html>

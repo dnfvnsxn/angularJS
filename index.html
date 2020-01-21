@@ -15,11 +15,22 @@
         <script src="script.js"></script>
     </head>
     <body ng-app="todo" ng-controller="TodoCtrl">
-        <h1>Todo</h1>
-        <h3>{{todo.title}}</h3>
-        <input type="text" ng-model="todo.title" />
-        <input type="checkbox" ng-model="todo.completed" />
-        <p>{{todo.completed}}</p>
-        <date>{{todo.createdAt}}</date>
+        <ul class="list-unstyled">
+            <li ng-repeat="todo in todos">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" ng-model="todo.completed" />
+                        </div>
+                    </div>
+                    <input
+                        type="text"
+                        class="form-control"
+                        ng-model="todo.title"
+                    />
+                    <date>{{todo.createdAt}}</date>
+                </div>
+            </li>
+        </ul>
     </body>
 </html>

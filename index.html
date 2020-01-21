@@ -27,8 +27,15 @@
                             class="form-control"
                             ng-model="todo.title"
                         />
+                        <button
+                            class="btn btn-danger"
+                            type="button"
+                            id="button-addon2"
+                            ng-click="remove(todo)"
+                        >
+                            delete
+                        </button>
                     </div>
-
                     <date>{{todo.createdAt | date:'yyyy-MM-dd HH:mm:ss'}}</date>
                 </div>
             </li>

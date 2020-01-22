@@ -17,6 +17,16 @@
   <body ng-app="todo" ng-controller="TodoCtrl">
     <div class="container">
       <h1>투두목록</h1>
+
+      <form name="TodoForm" ng-submit="add(newTodoTitle)">
+        <div class="input-group">
+          <input type="text" class="from-control" ng-model="newTodoTitle" />
+          <span class="input-group-btn">
+            <button class="btn btn-success" type="submit">추가</button>
+          </span>
+        </div>
+      </form>
+
       <ul class="list-unstyled">
         <li ng-repeat="todo in todos | filter:statusFilter">
           <div class="input-group mb-3">

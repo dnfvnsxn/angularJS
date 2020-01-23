@@ -48,3 +48,9 @@ app.controller("TodoCtrl", [
     };
   }
 ]);
+
+app.directive("todoTitle", function() {
+  return {
+    template: "<h1>todo List</h1>"
+  };
+});

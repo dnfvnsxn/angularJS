@@ -25,13 +25,20 @@
             class="from-control"
             ng-model="newTodoTitle"
             placeholder="input new todo"
-            autofocus
+            minlength="3"
           />
           <span class="input-group-btn">
             <button class="btn btn-success" type="submit">추가</button>
           </span>
         </div>
+        <div ng-show="TodoForm.$dirty && TodoForm.$invalid">
+          <div class="alert alert-warning" role="alert">
+            3글자 이상 입력
+          </div>
+        </div>
       </form>
+
+      <!--<pre>{{TodoForm | json}}</pre>-->
 
       <ul class="list-unstyled">
         <li ng-repeat="todo in todos | filter:statusFilter">

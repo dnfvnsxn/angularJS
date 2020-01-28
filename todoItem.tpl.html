@@ -1,9 +1,14 @@
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <div class="input-group-text">
-      <input type="checkbox" ng-model="todo.completed" />
+      <input type="checkbox" ng-model="todo.completed" ng-click="update()" />
     </div>
-    <input type="text" class="form-control" ng-model="todo.title" />
+    <input
+      type="text"
+      class="form-control"
+      ng-model="todo.title"
+      ng-blur="update()"
+    />
     <button
       class="btn btn-danger"
       type="button"

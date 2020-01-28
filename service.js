@@ -4,8 +4,11 @@ angular.module("todo").factory("todoStorage", function() {
     todos: [],
 
     _saveToLocalStorage: function(data) {
+      console.log(data, JSON.stringify(data));
+
       localStorage.setItem(TODO_DATA, JSON.stringify(data));
     },
+
     _getFromLocalStorage: function() {
       return JSON.parse(localStorage.getItem(TODO_DATA)) || [];
     },
@@ -40,6 +43,12 @@ angular.module("todo").factory("todoStorage", function() {
       };
 
       storage.todos.push(newTodo);
+      storage._saveToLocalStorage(storage.todos);
+    },
+
+    update: async function() {
+      console.log("TCL: storage.todos", storage.todos);
+
       storage._saveToLocalStorage(storage.todos);
     }
   };
